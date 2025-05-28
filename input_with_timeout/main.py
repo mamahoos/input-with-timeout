@@ -2,7 +2,6 @@ from .console_output import cout, endl
 import builtins, types, typing
 
 
-
 def windows_input_with_timeout(prompt, timeout):
     cout << prompt              # Print the prompt to the console
 
@@ -11,7 +10,9 @@ def windows_input_with_timeout(prompt, timeout):
     BS = chr(0x08)              # Backspace character
     SP = chr(0x20)              # Space character 
     ET = chr(0x03)              # End of text character
-
+    HT = chr(0x09)              # Horizontal Tab character
+    
+    TAB_SIZE = 4                
     DELAY = 5e-2                # 50 ms
     line  = ''                  # Initialize an empty line buffer
     start = time.monotonic()
@@ -30,10 +31,20 @@ def windows_input_with_timeout(prompt, timeout):
 
             elif ch == BS:              # Handle backspace character
                 if line:                # If the line is not empty 
+                    char = line[-1]     # 
                     line = line[:-1]    # Remove the last character from the line
-                    cout << BS << SP    # Clear the last character from the screen
-                    cout << BS          # Move the cursor back
-
+                    if char == HT:      # Remove Horizonal Tab character
+                        cout << BS * TAB_SIZE       # Move the cursor back
+                    elif char == SP:                # Remove Space character
+                        cout << BS                  # Move the cursor back
+                    else:
+                        cout << BS << SP            # Clear the last character from the screen
+                        cout << BS                  # Move the cursor back
+            
+            elif ch == HT:
+                line += ch
+                cout << SP * TAB_SIZE            
+            
             else:
                 line += ch              # Append the character to the end of the line
                 cout << ch
