@@ -40,7 +40,7 @@ def test_timeout_none_uses_builtins_input() -> None:
 
 
 def test_unix_timeout_raises(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr("input_with_timeout.main.sys.platform", "linux")
+    monkeypatch.setattr("input_with_timeout._core.sys.platform", "linux")
 
     with patch("select.select", return_value=([], [], [])):
         with pytest.raises(TimeoutError, match="Timeout occurred"):
@@ -48,7 +48,7 @@ def test_unix_timeout_raises(monkeypatch: pytest.MonkeyPatch) -> None:
 
 
 def test_unix_returns_line(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr("input_with_timeout.main.sys.platform", "linux")
+    monkeypatch.setattr("input_with_timeout._core.sys.platform", "linux")
 
     with patch("select.select", return_value=([object()], [], [])):
         with patch("sys.stdin.readline", return_value="answer\n"):
