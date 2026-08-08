@@ -9,7 +9,7 @@ Project: https://github.com/mamahoos/python-input-with-timeout
 
 from importlib.metadata import PackageNotFoundError, version
 
-from .main import input_with_timeout
+from ._core import input_with_timeout
 
 try:
     __version__ = version("input-with-timeout")

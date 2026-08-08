@@ -45,12 +45,9 @@ dev = [
     "pytest>=8.0.0",
 ]
 
-[tool.hatch.build.targets.wheel]
-packages = ["input_with_timeout"]
-
 [tool.hatch.build.targets.sdist]
 include = [
-    "/input_with_timeout",
+    "/src",
     "/README.md",
     "/LICENSE",
     "/tests",
@@ -58,3 +55,4 @@ include = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src"]
