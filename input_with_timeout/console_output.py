@@ -1,22 +1,18 @@
+from __future__ import annotations
+
 from sys import stdout
 
-# from typing import Self, Any
-Self = 'typing.Self'
-Any  = object()
 
-class Endl(object):
+class Endl:
     pass
 
-class Cout(object):
-    def __lshift__(self, other: Any) -> Self:
+
+class Cout:
+    def __lshift__(self, other: object) -> Cout:
         stdout.write("\r\n" if isinstance(other, Endl) else str(other))
         stdout.flush()
         return self
-    
+
+
 cout = Cout()
 endl = Endl()
-
-# ------ #
-
-if __name__ == "__main__":
-    cout << "Hello, World!" << endl
