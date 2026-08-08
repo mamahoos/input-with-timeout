@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "input-with-timeout"
+dynamic = ["version"]
+description = "Cross-platform user input with timeout support."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+authors = [
+    { name = "mamahoos", email = "m4m4hoos@gmail.com" },
+]
+keywords = [
+    "input",
+    "timeout",
+    "user input",
+    "cross-platform",
+    "console",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/mamahoos/python-input-with-timeout"
+Repository = "https://github.com/mamahoos/python-input-with-timeout"
+Issues = "https://github.com/mamahoos/python-input-with-timeout/issues"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[tool.hatch.version]
+path = "input_with_timeout/__version__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["input_with_timeout"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/input_with_timeout",
+    "/README.md",
+    "/LICENSE",
+    "/tests",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
