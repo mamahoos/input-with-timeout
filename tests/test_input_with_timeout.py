@@ -10,13 +10,13 @@ from input_with_timeout import __version__, input_with_timeout
 
 
 def test_version() -> None:
-    assert __version__ == "2.3.0"
+    assert __version__ == "2.3.1"
 
 
 def test_homepage_url_from_package_metadata() -> None:
     urls = metadata("input-with-timeout").get_all("Project-URL") or []
     assert any(
-        "https://github.com/mamahoos/python-input-with-timeout" in url
+        "https://github.com/mamahoos/input-with-timeout" in url
         for url in urls
     )
 

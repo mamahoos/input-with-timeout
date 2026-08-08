@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "input-with-timeout"
-version = "2.3.0"
+version = "2.3.1"
 description = "Cross-platform user input with timeout support."
 readme = "README.md"
 license = "MIT"
@@ -36,9 +36,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mamahoos/python-input-with-timeout"
-Repository = "https://github.com/mamahoos/python-input-with-timeout"
-Issues = "https://github.com/mamahoos/python-input-with-timeout/issues"
+Homepage = "https://github.com/mamahoos/input-with-timeout"
+Repository = "https://github.com/mamahoos/input-with-timeout"
+Issues = "https://github.com/mamahoos/input-with-timeout/issues"
 
 [dependency-groups]
 dev = [

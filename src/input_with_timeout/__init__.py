@@ -4,7 +4,7 @@
 Cross-platform `input()` with a timeout. Raises `TimeoutError` when the user
 does not respond in time.
 
-Project: https://github.com/mamahoos/python-input-with-timeout
+Project: https://github.com/mamahoos/input-with-timeout
 """
 
 from importlib.metadata import PackageNotFoundError, version
