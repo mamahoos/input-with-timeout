@@ -7,34 +7,16 @@ does not respond in time.
 Project: https://github.com/mamahoos/python-input-with-timeout
 """
 
+from importlib.metadata import PackageNotFoundError, version
+
 from .main import input_with_timeout
-from .__version__ import (
-    __author__,
-    __author_email__,
-    __classifiers__,
-    __copyright__,
-    __description__,
-    __keywords__,
-    __license__,
-    __platforms__,
-    __title__,
-    __url__,
-    __version__,
-    __version_info__,
-)
+
+try:
+    __version__ = version("input-with-timeout")
+except PackageNotFoundError:  # pragma: no cover - only when package metadata is missing
+    __version__ = "0.0.0"
 
 __all__ = [
     "input_with_timeout",
-    "__title__",
-    "__description__",
     "__version__",
-    "__version_info__",
-    "__author__",
-    "__author_email__",
-    "__url__",
-    "__copyright__",
-    "__license__",
-    "__keywords__",
-    "__platforms__",
-    "__classifiers__",
 ]

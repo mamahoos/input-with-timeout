@@ -4,16 +4,21 @@ from typing import Any
 from unittest.mock import patch
 
 import pytest
+from importlib.metadata import metadata
 
-from input_with_timeout import __url__, __version__, input_with_timeout
+from input_with_timeout import __version__, input_with_timeout
 
 
 def test_version() -> None:
     assert __version__ == "2.3.0"
 
 
-def test_homepage_url() -> None:
-    assert __url__ == "https://github.com/mamahoos/python-input-with-timeout"
+def test_homepage_url_from_package_metadata() -> None:
+    urls = metadata("input-with-timeout").get_all("Project-URL") or []
+    assert any(
+        "https://github.com/mamahoos/python-input-with-timeout" in url
+        for url in urls
+    )
 
 
 @pytest.mark.parametrize("timeout", ["10", [], {}, object()])
